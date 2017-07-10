@@ -1,34 +1,30 @@
-# PHP Composer Package Starter Example
+<h1 align="center">Vulcan CRUD</h1>
+
+**Vulcan CRUD** is a package for Laravel 5 that provides scaffolding and functionality for generating CRUD related resources within a project.
 
 
-## Usage
 
-Download this repository as a zip file without the Git history, rename it, run `git init` to initialize an empty git repository and then get cracking creating your own package.
+## Installation
 
-You will need to update the following items with your package's name and info:
+### Step 1: Composer
 
-- rename the main repository directory
-- README.md
-- composer.json (package name, psr-4 namespaces, etc)
-- tests/TestCase.php (rename the database table)
-- tests/ExampleTest.php (rename)
+From the command line, run:
 
-If initially using the package locally, required by another local package make sure this package has been initialized as a git repository and make an initial commit, otherwise composer will not be able to install the package as a local vendor package.
+```shell
+composer require ... # the project is still in development and will be on packagist.org soon
+```
 
-Additionally, if initially using the package locally, add the following to the other project's **composer.json**:
+### Step 2: Service Provider
 
-```javascript
-"repositories": [
-    {
-        "type": "vcs",
-        "url": "../path/to/example-package"
-    }
+Within your Laravel project, open config/app.php and, within the providers array, append:
+
+```php
+'providers' => [
+    // ...
+    Weerd\VulcanCrud\VulcanCrudServiceProvider::class,
+    //...
 ],
-"require": {
-    "weerd/example-package": "dev-master"
-}
-````
+```
 
-## Extras
+This will bootstrap the package into Laravel.
 
-_The `illuminate/database` package is required for development testing, however if this package is intended to be a Laravel package and/or a package that needs database transactions, feel free to move `illuminate/database` from `require-dev` to `require`._
